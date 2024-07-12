@@ -13,7 +13,7 @@ int main(){
   int c=0;
   cout << "Hey brother! Type here bellow the radius of a circle: \n";
   cin >> r;
-  cout << "Pi = " << pi < '\n';
+  cout << "Pi = " << pi << '\n';
   DPA[3] = circulo(r);
   cout << "Respectvaly, the diameter, perimeter and area of a circle with radius " << r << "are: ";
   while(c<3){

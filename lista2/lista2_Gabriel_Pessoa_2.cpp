@@ -1,9 +1,13 @@
-/*                  Seja bem vindo ao arquivo de teste! A função desse arquivo é
-                        ser um espaço para você testar qualquer programa que queira
-            
-                    Esse arquivo não é referente a um exercício específico!
-
-                    O executavel desse arquivo tem o nome "adt1"! Compile no terminal com "./adt1"  */
+/*
+→ Imprima a raiz quadrada de todos os números números pares de 1 até 100
+→ Crie 2 variáveis (uma int e outra float) e receba do usuários um valor inteiro e de um 
+valor float, e depois imprima a raiz quadrada de cada um deles e a raiz quadrada da 
+soma dos quadrados dos valores
+→ Imprima a hipotenusa de um triângulo retângulo cujos catetos sejam digitados pelo 
+usuário.
+→ Imprima o seno, cosseno e tangente dos ângulos de um triângulo retângulo cujos 
+catetos sejam digitados pelo usuário.
+*/
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -36,9 +40,3 @@ int main(){
         cout << "Goodbye bro, thanks for your time!\n";
 return 0;
 }
-
-
-
-
-
-

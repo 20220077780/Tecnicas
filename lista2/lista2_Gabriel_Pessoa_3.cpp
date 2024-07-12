@@ -1,5 +1,7 @@
-//Imprima o diâmetro, o perímetro e a área de um círculo cujo raio seja dado pelo usuário. Utilize o operador #define para definir o valor de pi.
-
+/*
+Imprima o diâmetro, o perímetro e a área de um círculo cujo raio seja dado pelo 
+usuário. Utilize o operador #define para definir o valor de pi.
+*/
 #include <iostream>
 #include <cmath>
 #define pi acos(-1)

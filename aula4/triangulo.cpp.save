@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>
+const double pi = acos(-1);
+int main(){
+	 float x,y,h;
+	 std::cout << "Fala moral, me diz aí 2 catetos por favor:\n";
+	std::cin >> x >> y;
+	 h = hypot(x,y);
+	 std::cout << "Hipotenusa igual a " << h << '\n';
+	 std::cout << "Seno de Theta igual a " << sin(y/h) << '\n';
+	 std::cout << "Cosseno de Theta igual a " << cos(x/h) << '\n';
+	 std::cout << "Tangente de Theta igual a " << tan(y/x) << '\n';
+	 std::cout << "sin(pi/6) = " << sin(pi/6) << '\n'
+		 << "sin(pi/2) = " << sin(pi/2) << '\n'
+		 << "sin(-3*pi/4) = " << sin(-3*pi/4) << '\n';
+	 std::cout << "cos(pi/3) = " << cos(pi/3) << '\n'
+		 << "cos(pi/2) = " << cos(pi/2) << '\n'
+		 << "cos(-3*pi/4) = " << cos(-3*pi/4) << '\n';
+	 std::cout << "tan (pi/4) = " << tan( pi/4) << '\n' // 45 deg.
+		 << "tan(3*pi/4) = " << tan(3*pi/4) << '\n' // 135 deg
+		 << "tan(5*pi/4) = " << tan(5*pi/4) << '\n' // -135 deg
+		 << "tan(7*pi/4) = " << tan(7*pi/4) << '\n'; // -45 deg
+	 // special values
+}

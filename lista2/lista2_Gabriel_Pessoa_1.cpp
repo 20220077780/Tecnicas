@@ -6,7 +6,7 @@ using namespace std;
 int main(){
         int c=1;
         string nome("Gabriel Gomes Pessoa");
-        cout << "Seu nome é " << nome << " e suas idades já foram: \n";
+        cout << "Your name is " << nome << " and your age was already: \n";
         while(c<=20){
                 cout << "\t" << c << "\n";
                 c++;

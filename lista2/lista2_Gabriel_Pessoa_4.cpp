@@ -11,7 +11,7 @@ todos os espaços de nomes criados.
 */
 
 #include <iostream>
-#include <string>
+//#include <string>
 using namespace std;
 
 namespace maria {
@@ -51,8 +51,8 @@ int main(){
 //    idades = (maria::idade + jose::idade + gabriel::idade)/3;
 //    CREs = (maria::cre + jose::cre + gabriel::cre)/3;
 //    cout << "The age round average is " << idades << " and the CREs average is " << CREs << ".\n";
-    int diasM, diasJ, diasG, c=0;
-    string nomes[3] = {"maria", "jose", "gabriel"};
+    int diasM, diasJ, diasG;
+    //string nomes[3] = {"maria", "jose", "gabriel"};
     //while(c<3){cout << nomes[c] << endl; c++;}
     diasM = maria::ageM(maria::idade);
     diasJ = jose::ageJ(jose::idade);

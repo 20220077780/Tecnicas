@@ -1,5 +1,5 @@
 /*
-Mostre na tela os valores dos senos e cossenos dos ângulos 0º até 90º com passo de 5º
+Mostre na tela os valores dos senos e cossenos dos ângulos 0° até 90° com passo de 5°
 */
 #include <iostream>
 #include <cmath>

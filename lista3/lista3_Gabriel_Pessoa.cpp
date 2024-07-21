@@ -9,7 +9,6 @@ altura seja de acordo com o valor de n dado e o caractere da pirâmide
 seja o valor de a.
 */
 #include <iostream>
-#include <bitset>
 using namespace std;
 
 int f(int a){    return a*a + 5*a + 2;  }

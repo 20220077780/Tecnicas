@@ -11,6 +11,9 @@ seja o valor de a.
 #include <iostream>
 #include <bitset>
 using namespace std;
+
+int f(int a){    return a*a + 5*a + 2;  }
+
 int main(){
     char a;
     int n;
@@ -24,18 +27,27 @@ int main(){
     }
     //////////////////////////////////////////////////////////////////////////
     if(n<=8 && n>0){
-        int k=1;//l=1;
-        k=k << (n-1);
-        bitset<8> binario(k);
-        cout << n << endl;
-        cout << binario << endl;
-        /*l<<=(n-1); // esse tipo de estrutura funciona para fazer deslocamento bit a bit. Correia eh bala! <3
-        bitset<8> f(l);
-        cout << n << endl;
-        cout << f << endl;*/
+    int k = 0b1;
+        k = k << (n-1);
+        if(k & a){cout << "2) The " << n <<"° bit of " << a << " is 1!\n";}
+        else{cout << "2) The " << n <<"° bit of " << a << " is 0!\n";}
     }
-
-
-
+    else{cout << "2) Your number is not between 1 and 8!\n";}
+    //////////////////////////////////////////////////////////////////////////
+    if(n & 0b1){cout << "3) The number " << n << " is odd!\n";}
+    else{cout << "3) The number " << n << " is pair!\n";}
+    //////////////////////////////////////////////////////////////////////////
+    cout << "4) f(" << n << ") = " << f(n) << endl;
+    //////////////////////////////////////////////////////////////////////////
+    int c=1;
+    cout << "5) \n";
+    while(c<=n){
+        int l=1;
+        while(l<=c){cout << a; l++;}
+        cout << "\n";
+        ++c;
+    }
+    //////////////////////////////////////////////////////////////////////////
+    cout << "Thanks for your time, see you later!\n";
 return 0;
 }

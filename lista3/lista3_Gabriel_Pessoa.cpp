@@ -21,7 +21,7 @@ int main(){
     //////////////////////////////////////////////////////////////////////////
     if(a>=48 && a<=57){cout << "1) The character " << a << " is a number!\n";} //→ Mostre na tela se o caractere a é letra ou número (0 à 9)
     else{
-        if(a>=65 && a<=90 || a>=97 && a<=122){cout << "1) The character " << a << " is a letter!\n";}
+        if((a>=65 && a<=90) || (a>=97 && a<=122)){cout << "1) The character " << a << " is a letter!\n";}
         else{cout << "1) The character " << a << " is neither a number nor a letter!\n";}
     }
     //////////////////////////////////////////////////////////////////////////

@@ -5,6 +5,7 @@ tela inicial, quais das operações abaixo será executada e ter uma opção de 
 inicial ou sair do programa (use a estrutura switch-case).
 */
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 void one();        
@@ -101,22 +102,50 @@ III. Mostre na tela a raiz quadrada de todos os números inteiros situados no in
 dados pelo usuário.
 */
 void three(){
-
+    int a;
+    int b;
+    int s;
+    cout << "Please, type me two intenger numbers: \n";
+    cin >> a;
+    cin >> b;
+    if(a>b){
+        s = b;
+        b = a;
+        a = s;
+    }
+    cout << "The squareroot of the intenger numbers between " << a << " and " << b << " are:\n";
+    while(a<=b){ 
+        cout << "\tsqrt(" << a << ") = " << sqrt(a) << endl;
+        a++;
+    }
+    cout << "Task over!\n";
     return;
 }
 ////////////////////////////////////////////////////////////////////////////////
 /*
 IV. Mostre na tela o padrão numérico/asteriscos abaixo de acordo com o valor de n, dado pelo usuário (no
 exemplo abaixo, n = 6):
-▪ 123456
-▪ 12345*
-▪ 1234**
-▪ 123***
-▪ 12****
-▪ 1*****
+→ 123456
+→ 12345*
+→ 1234**
+→ 123***
+→ 12****
+→ 1*****
 */
 void four(){
-
+    int n, c, i;
+    cout << "Please, type an intenger number: ";
+    cin >> n;
+    char k[n];
+    i = n+1;
+    for(c=1; c<=n; c++) k[c] = c+48;
+    while(i>1){
+        k[i] = '*';
+        for(c=1; c<=n; c++) cout << k[c];
+        cout << endl;
+        i--;
+    }    
+    cout << "Task over!\n";
     return;
 }
 ////////////////////////////////////////////////////////////////////////////////

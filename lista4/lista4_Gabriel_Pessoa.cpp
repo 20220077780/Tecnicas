@@ -30,12 +30,12 @@ tela os zeros reais e imaginários, caso tenham.
 #include <iostream>
 using namespace std;
 
-void one();
-void two();
-void three();
-void four();
-void five();
-void six();
+void one();        
+void two();        
+//void three();        
+//void four();        
+//void five();        
+//void six();        
 
 int main(){
     int c=1;
@@ -48,16 +48,16 @@ int main(){
         "5) The result of f(x) in an determinated pace.\n\t" <<
         "6) The roots of a quadratic equation:\n" <<
         "Type 0 to exit!\n";
-        int k;
+        int k; 
         cin >> k;
         switch (k){
             case 0: c=0; break;
             case 1: one(); break;
-            case 2: break;
-            case 3: break;
-            case 4: break;
-            case 5: break;
-            case 6: break;
+            case 2: two(); break;
+ //           case 3: three(); break;
+ //           case 4: four(); break;
+ //           case 5: five(); break;
+ //           case 6: six(); break;
         
         default: cout << "Please, type an value beetween 0 and 6.\n"; break;
         }
@@ -66,9 +66,61 @@ int main(){
     return 0;
 }
 
+/*
+I. Solicite ao usuário duas letras do alfabeto (que podem ser tanto maiúsculas quanto minúsculas) e
+mostre na tela a sequência completa de letras entre essas duas letras.
+*/
 void one(){
-    int a, b;
-    cout << "Please, type two letters!\n";
-    
-
+    char a, b, c;
+    cout << "Please, type two letters: \n";
+    cin >> a; 
+    cin >> b;
+    if(a>b){
+        c = b;
+        b = a;
+        a = c;
+    }
+    if((a>=65 && a<=90) || (a>=97 && a<=122)){
+        if((b>=65 && b<=90) || (b>=97 && b<=122)){
+            while(a<=b){
+                if(a>=91 && a<=96) a++;
+                else{
+                    cout << "\t" << a << endl;
+                    a++;
+                } 
+            }
+        }
+        else cout << "One of the character is not a letter!\n";
+    }
+    else cout << "One of the character is not a letter!\n";
+    cout << "Task over!\n";
+    return;
 }
+////////////////////////////////////////////////////////////////////////////////
+/*
+II. Mostre na tela o valor de y do somatório y = som(a>>b){x+b},
+em que os valores de a e b inteiros sejam dados pelo usuário.
+*/
+void two(){
+    int a;
+    int b;
+    int s=0;
+    cout << "Please, type me two intenger numbers: \n";
+    cin >> a;
+//    cout << "Recebi " << a << endl;
+    cin >> b;
+//    cout << "Recebi " << b << endl;
+    if(a>b){
+        s = b;
+        b = a;
+        a = s;
+        s = 0;
+    }
+    while(a<=b){
+        s = s + a+3;
+        a++;
+    }
+    cout << "The sum is " << s << "\nTask over!\n";
+    return;
+}
+////////////////////////////////////////////////////////////////////////////////

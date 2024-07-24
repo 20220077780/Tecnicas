@@ -3,39 +3,16 @@ Construindo um menu, elabore um código que solicite ao usuário um número, de 
 com as opções abaixo numeradas de I até VI, para que o usuário tenha opção de escolher, na
 tela inicial, quais das operações abaixo será executada e ter uma opção de retornar à tela
 inicial ou sair do programa (use a estrutura switch-case).
-
-I. Solicite ao usuário duas letras do alfabeto (que podem ser tanto maiúsculas quanto minúsculas) e
-mostre na tela a sequência completa de letras entre essas duas letras.
-II. Mostre na tela o valor de y do somatório �� = σ��=��
-��
-(�� + 3), em que os valores de a e b inteiros sejam
-dados pelo usuário.
-III. Mostre na tela a raiz quadrada de todos os números inteiros situados no intervalo a e b, sendo a e b
-dados pelo usuário.
-IV. Mostre na tela o padrão numérico/asteriscos abaixo de acordo com o valor de n, dado pelo usuário (no
-exemplo abaixo, n = 6):
-▪ 123456
-▪ 12345*
-▪ 1234**
-▪ 123***
-▪ 12****
-▪ 1*****
-V. Mostre na tela os valores de f(x) no intervalo [xmin,..., xmax com passo δ] da função f(x) = ax
-2 + bx + c, em
-que os valores de xmin, xmax, δ, a, b e c sejam dados pelo usuário. Todos os valores envolvidos devem ser
-em ponto flutuante.
-VI. Solicite ao usuários os valores de a, b e c de uma equação de 2º grau na forma ax2+bx+c e mostre nas
-tela os zeros reais e imaginários, caso tenham.
 */
 #include <iostream>
 using namespace std;
 
 void one();        
 void two();        
-//void three();        
-//void four();        
-//void five();        
-//void six();        
+void three();        
+void four();        
+void five();        
+void six();        
 
 int main(){
     int c=1;
@@ -54,10 +31,10 @@ int main(){
             case 0: c=0; break;
             case 1: one(); break;
             case 2: two(); break;
- //           case 3: three(); break;
- //           case 4: four(); break;
- //           case 5: five(); break;
- //           case 6: six(); break;
+            case 3: three(); break;
+            case 4: four(); break;
+            case 5: five(); break;
+            case 6: six(); break;
         
         default: cout << "Please, type an value beetween 0 and 6.\n"; break;
         }
@@ -107,20 +84,57 @@ void two(){
     int s=0;
     cout << "Please, type me two intenger numbers: \n";
     cin >> a;
-//    cout << "Recebi " << a << endl;
     cin >> b;
-//    cout << "Recebi " << b << endl;
     if(a>b){
         s = b;
         b = a;
         a = s;
         s = 0;
     }
-    while(a<=b){
-        s = s + a+3;
-        a++;
-    }
+    while(a<=b){ s = s + a+3; a++;}
     cout << "The sum is " << s << "\nTask over!\n";
     return;
 }
 ////////////////////////////////////////////////////////////////////////////////
+/*
+III. Mostre na tela a raiz quadrada de todos os números inteiros situados no intervalo a e b, sendo a e b
+dados pelo usuário.
+*/
+void three(){
+
+    return;
+}
+////////////////////////////////////////////////////////////////////////////////
+/*
+IV. Mostre na tela o padrão numérico/asteriscos abaixo de acordo com o valor de n, dado pelo usuário (no
+exemplo abaixo, n = 6):
+▪ 123456
+▪ 12345*
+▪ 1234**
+▪ 123***
+▪ 12****
+▪ 1*****
+*/
+void four(){
+
+    return;
+}
+////////////////////////////////////////////////////////////////////////////////
+/*
+V. Mostre na tela os valores de f(x) no intervalo [xmin,..., xmax com passo δ] da função
+f(x) = ax2 + bx + c, em que os valores de xmin, xmax, δ, a, b e c sejam dados pelo usuário.
+Todos os valores envolvidos devem ser em ponto flutuante.
+*/
+void five(){
+
+    return;
+}
+////////////////////////////////////////////////////////////////////////////////
+/*
+VI. Solicite ao usuários os valores de a, b e c de uma equação de 2º grau na forma ax2+bx+c e mostre nas
+tela os zeros reais e imaginários, caso tenham.
+*/
+void six(){
+
+    return;
+}

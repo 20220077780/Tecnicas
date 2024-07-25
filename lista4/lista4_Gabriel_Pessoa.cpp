@@ -13,7 +13,9 @@ void two();
 void three();        
 void four();        
 void five();        
-void six();        
+void six();
+
+float f(float, float, float, float);        
 
 int main(){
     int c=1;
@@ -155,9 +157,27 @@ f(x) = ax2 + bx + c, em que os valores de xmin, xmax, δ, a, b e c sejam dados p
 Todos os valores envolvidos devem ser em ponto flutuante.
 */
 void five(){
-
+    float xmax, xmim, a, b, c, p;
+    cout << "Please, type-me the coefficients a, b and c of the pollinome f(x) = ax2 + bx + c:\n";
+    cin >> a;    cin >> b;    cin >> c;
+    cout << "Now, type-me a range and a pace:\n";
+    cin >> xmim;    cin >> xmax;    cin >> p;
+    
+    if(xmim > xmax){
+        int k = xmax;
+        xmax = xmim;
+        xmim = k;
+    }
+    cout << "In the range " << xmim << " → " << xmax << ", the values of f(x) is:\n";
+    while(xmim <= xmax){
+        cout << "\tf(" << xmim << ") = " << f(a, b, c, xmim) << endl;
+        xmim += p;
+    }
+    cout << "Task over!\n";
     return;
 }
+
+float f(float a, float b, float c, float x){ return (a*x*x) + (b*x) + c;}
 ////////////////////////////////////////////////////////////////////////////////
 /*
 VI. Solicite ao usuários os valores de a, b e c de uma equação de 2º grau na forma ax2+bx+c e mostre nas

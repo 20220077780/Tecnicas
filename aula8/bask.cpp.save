@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cmath>
+using namespace std
+
+float delta(int, int, int);
+float complexo(int, int, int);
+
+void positivo(int, int, int);
+void zero(int, int, int);
+void negativo(int, int, int);
+
+int main(){
+	int a, b, c, k;
+	cout << "Salve pcr, me de os coeficientes de um polinomo de segundo grau do tipo ax2+bx+c nessa ordem: ";
+	cin >> a, b, c;
+	int d = delta(a, b, c);
+	if(d>0) positivo(a, b, c, d);
+	else{
+		if(i=0) zero(a, b, c);
+		else negativo(a, b, c, d);
+	}
+
+return 0;
+}
+
+float delta(int x, int y, int z) return y*y -(4*x*z);
+void positivo(int a, int b, int c, int d){
+	int r, R;
+	r = -(b+ sqrt(d))/(2*a);
+	R = -(b- sqrt(d))/(2*a);
+	cout << "Suas duas raizes reais são: " << r << " e " << R << endl;
+}
+void zero(int a ,int b, int c){
+	int r;
+	r = -b/(2*a)
+
+}

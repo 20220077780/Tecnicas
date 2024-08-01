@@ -8,17 +8,18 @@ inicial ou sair do programa (use a estrutura switch-case).
 #include <cmath>
 using namespace std;
 
-void one();        
-void two();        
-void three();        
-void four();        
-void five();        
-void six();
+int one(int);        
+int two(int);        
+int three(int);        
+int four(int);        
+int five(int);        
+int six(int);
 
 float f(float, float, float, float);        
 
 int main(){
     int c=1;
+    int x;
     while(c){
         cout << "Hello! There is an menu for your options in this code:\n";
         cout << "\t1) The letters between 2 letters.\n\t"<<
@@ -32,12 +33,12 @@ int main(){
         cin >> k;
         switch (k){
             case 0: c=0; break;
-            case 1: one(); break;
-            case 2: two(); break;
-            case 3: three(); break;
-            case 4: four(); break;
-            case 5: five(); break;
-            case 6: six(); break;
+            case 1: c = one(x); break;
+            case 2: c = two(x); break;
+            case 3: c = three(x); break;
+            case 4: c = four(x); break;
+            case 5: c = five(x); break;
+            case 6: c = six(x); break;
         
         default: cout << "Please, type an value beetween 0 and 6.\n"; break;
         }
@@ -50,7 +51,7 @@ int main(){
 I. Solicite ao usuário duas letras do alfabeto (que podem ser tanto maiúsculas quanto minúsculas) e
 mostre na tela a sequência completa de letras entre essas duas letras.
 */
-void one(){
+int one(int w){
     char a, b, c;
     cout << "Please, type two letters: \n";
     cin >> a; 
@@ -73,15 +74,18 @@ void one(){
         else cout << "One of the character is not a letter!\n";
     }
     else cout << "One of the character is not a letter!\n";
-    cout << "Task over!\n";
-    return;
+    
+    
+    cout << "Do you want leave the algorithm [TYPE 0] or back to menu [TYPE ANY DIGIT]?";
+    cin >> w;
+    return w;
 }
 ////////////////////////////////////////////////////////////////////////////////
 /*
 II. Mostre na tela o valor de y do somatório y = som(a>>b){x+b},
 em que os valores de a e b inteiros sejam dados pelo usuário.
 */
-void two(){
+int two(int w){
     int a;
     int b;
     int s=0;
@@ -95,15 +99,19 @@ void two(){
         s = 0;
     }
     while(a<=b){ s = s + a+3; a++;}
-    cout << "The sum is " << s << "\nTask over!\n";
-    return;
+    cout << "The sum is " << s << "\n";
+
+
+    cout << "Do you want leave the algorithm [TYPE 0] or back to menu [TYPE ANY DIGIT]?";
+    cin >> w;
+    return w;
 }
 ////////////////////////////////////////////////////////////////////////////////
 /*
 III. Mostre na tela a raiz quadrada de todos os números inteiros situados no intervalo a e b, sendo a e b
 dados pelo usuário.
 */
-void three(){
+int three(int w){
     int a;
     int b;
     int s;
@@ -120,8 +128,11 @@ void three(){
         cout << "\tsqrt(" << a << ") = " << sqrt(a) << endl;
         a++;
     }
-    cout << "Task over!\n";
-    return;
+
+
+    cout << "Do you want leave the algorithm [TYPE 0] or back to menu [TYPE ANY DIGIT]?";
+    cin >> w;
+    return w;
 }
 ////////////////////////////////////////////////////////////////////////////////
 /*
@@ -134,7 +145,7 @@ exemplo abaixo, n = 6):
 → 12****
 → 1*****
 */
-void four(){
+int four(int w){
     int n, c, i;
     cout << "Please, type an intenger number: ";
     cin >> n;
@@ -147,8 +158,11 @@ void four(){
         cout << endl;
         i--;
     }    
-    cout << "Task over!\n";
-    return;
+
+
+    cout << "Do you want leave the algorithm [TYPE 0] or back to menu [TYPE ANY DIGIT]?";
+    cin >> w;
+    return w;
 }
 ////////////////////////////////////////////////////////////////////////////////
 /*
@@ -156,7 +170,7 @@ V. Mostre na tela os valores de f(x) no intervalo [xmin,..., xmax com passo δ] 
 f(x) = ax2 + bx + c, em que os valores de xmin, xmax, δ, a, b e c sejam dados pelo usuário.
 Todos os valores envolvidos devem ser em ponto flutuante.
 */
-void five(){
+int five(int w){
     float xmax, xmim, a, b, c, p;
     cout << "Please, type-me the coefficients a, b and c of the pollinome f(x) = ax2 + bx + c:\n";
     cin >> a;    cin >> b;    cin >> c;
@@ -173,8 +187,11 @@ void five(){
         cout << "\tf(" << xmim << ") = " << f(a, b, c, xmim) << endl;
         xmim += p;
     }
-    cout << "Task over!\n";
-    return;
+
+
+    cout << "Do you want leave the algorithm [TYPE 0] or back to menu [TYPE ANY DIGIT]?";
+    cin >> w;
+    return w;
 }
 
 float f(float a, float b, float c, float x){ return (a*x*x) + (b*x) + c;}
@@ -183,7 +200,44 @@ float f(float a, float b, float c, float x){ return (a*x*x) + (b*x) + c;}
 VI. Solicite ao usuários os valores de a, b e c de uma equação de 2º grau na forma ax2+bx+c e mostre nas
 tela os zeros reais e imaginários, caso tenham.
 */
-void six(){
+int delta(float x, float y, float z){return y*y -(4*x*z);}
 
-    return;
+void positivo(float a, float b, float d){
+	float r = (-b+sqrt(d))/(2*a);
+	float R = (-b-sqrt(d))/(2*a);
+	cout << "Your roots is " << r<< " and " << R << endl;
+	return;
+}
+
+void zero(float a, float b){
+	float r = -b/(2*a);
+	cout << "Your root is " << r << endl;
+	return;
+}
+
+void negativo(float a, float b, float d){
+	d = sqrt(-d);
+	float im = d/(2*a);
+	float re = -b/(2*a);
+	cout << "Your roots is conjugate complexes " << re << " + " << im << "i and " << re << " - " << im << "i\n" << endl;
+	return;
+
+}
+
+int six(int w){
+    float a, b, c;
+    cout << "Please, type-me the coefficientes of an second degree polinome as f(x) = ax2+bx+c, in this order: ";
+    cin >> a; cin >> b; cin >> c;
+    int d = delta(a, b, c);
+    if(d>0) positivo(a, b, d);
+    else{
+        if(d==0) zero(a, b);
+        else negativo(a, b, d);
+    }
+	
+     cout << "Do you want leave the algorithm [TYPE 0] or back to menu [TYPE ANY DIGIT]?";
+    cin >> w;
+    return w;
+
+    return w;
 }

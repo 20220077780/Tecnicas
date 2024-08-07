@@ -18,6 +18,8 @@ V. Tenha uma opção de retornar à tela inicial.*/
 #include <string>
 using namespace std;
 
+void cadastro(int);
+
 class pessoa{
 	int idade, CPF;
 	float renda, altura, peso;
@@ -35,7 +37,7 @@ int main(){
 	cin >> c;
 	for(int i=1; i<=c; i++){
 		switch(i){
-		 case 1:
+		 case 1: cadastro(i); break;
 		 case 2:
 		 case 3:
 		 case 4:
@@ -46,12 +48,14 @@ int main(){
                  case 9:
                  case 10:
 		default: cout << "Seu numero de pessoas ultrapassa o limite que é 10, reinicie o programa!\n"; break; 
-		
-		
 		}
-
 	}
-
-
 return 0;
+}
+
+void cadastro(int index){
+	cout << "Vamos para o cadastro da " << index << "° pessoa!\n";
+	
+
+
 }

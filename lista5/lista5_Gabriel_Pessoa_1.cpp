@@ -18,7 +18,7 @@ V. Tenha uma opção de retornar à tela inicial.*/
 #include <string>
 using namespace std;
 
-void cadastroI(int);
+int cadastroI();
 //void cadastroII(int);
 //void cadastroIII(int);
 //void cadastroIV(int);
@@ -35,7 +35,7 @@ class pessoa{
 	string nome, estado;
 	public:
 
-		pessoa(){idade=18; CPF=71530919479; renda= 0.11; altura=1.9; peso=87; nome="Rato Branco"; estado="Solteiro";}
+		pessoa(){idade=18; CPF=71530919479; renda = 0.11; altura=1.9; peso=87; nome="Rato Branco"; estado="Solteiro";}
 		float IMC(float peso, float altura) {return peso/(altura*altura);}
 		int obesidade = (IMC(peso, altura)>=30)? 1:0; //if(obesidade) cout << "OBESO!\n";
 
@@ -48,8 +48,29 @@ class pessoa{
 		void SETestado(string a){estado = a;}	; string GETestado(){return estado;}
 };
 
+pessoa people[10]; //cadastro como variavel global
 int main(){
-	pessoa people[10];
+	int c; 
+	cout << "Ola, qual opção tu queres fazer?\n"
+		<< "\t[1] Cadastrar nova pessoa\n"
+		<< "\t[2] Lista de um dado especifico\n"
+		<< "\t[3] Lista de médias e desvios padraos\n"
+		<< "\t[4] Lista de IMC\n"
+		<< "\t[0] Sair do código\n";
+	cin >> c;
+	switch(c){
+		case 0: break;
+		case 1: c=cadastroI(); break;
+		case 2: break;
+		case 3: break;
+		case 4: break;
+		default: cout << "Por favor, digite uma opcao valida!\n"; break;
+	}
+return 0;
+}
+
+int cadastroI(){
+
 	int idade, CPF;
 	float renda, altura, peso;
 	string nome, estado;
@@ -57,22 +78,33 @@ int main(){
 	cout << "Ola, vamos cadastrar uma pessoa?\nQuantas pessoas serao cadastradas dessa vez?\n";
 	int c;
 	cin >> c;
-
+	if(c>10){cout << "Perdao, somente cadastramos 10 pessoas por vez, reinicie o programa apos o cadastramento das 10 primeiras.\n"; c=10;}
 	for(int i=0; i<c; i++){
-		cout << "Idade " << i+1 << ": "; cin >> idade; people[i].SETidade(idade);  
+		cout << "Nome " << i+1 << ": ";
+			getline(cin, nome);
+			people[i].SETnome(nome);
+		cout << "Idade de " << nome << ": ";
+			cin >> idade;
+			people[i].SETidade(idade);
+		cout << "CPF de " << nome << ": ";
+			cin >> CPF;
+			people[i].SETCPF(CPF);
+		cout << "Renda de " << nome << ": ";
+			cin >> renda;
+			people[i].SETrenda(renda);
+		cout << "Altura de " << nome << ": ";
+			cin >> altura;
+			people[i].SETaltura(altura);
+		cout << "Peso de " << nome << ": ";	
+			cin >> peso;
+			people[i].SETpeso(peso);
+		cout << "Estado civil de " << nome << ": ";
+			getline(cin, estado);
+			people[i].SETestado(estado);
 	}
-	for(int i=0; i<c; i++){
-		cout << "Idade " << i+1 << " = " << people[i].GETidade() << "\t";  
-	} //FUNCIONAAAAAAAAAAAAAAAAA
 
-return 0;
-}
-
-void cadastroI(int index){
-	string nome;
-	cout << "AAAAAAAA para o cadastro da " << index << "° pessoa!\nDigite seu nome completo: ";
-	getline(cin, nome, '\n');
-	cout << "teu nome " << nome << endl;
-	return;
+	cout <<"Deseja retornar para a tela inicial?\n\t[0] NAO\n\t[Qualquer numero] SIM\n";
+	cin >> idade;
+	return idade;
 }
 

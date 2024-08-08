@@ -108,3 +108,4 @@ int cadastroI(){
 	return idade;
 }
 
+//seria que foi?

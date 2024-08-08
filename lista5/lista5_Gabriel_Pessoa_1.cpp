@@ -18,44 +18,61 @@ V. Tenha uma opção de retornar à tela inicial.*/
 #include <string>
 using namespace std;
 
-void cadastro(int);
+void cadastroI(int);
+//void cadastroII(int);
+//void cadastroIII(int);
+//void cadastroIV(int);
+//void cadastroV(int);
+//void cadastroVI(int);
+//void cadastroVII(int);
+//void cadastroVIII(int);
+//void cadastroIX(int);
+//void cadastroX(int);
 
 class pessoa{
 	int idade, CPF;
 	float renda, altura, peso;
 	string nome, estado;
 	public:
+
+		pessoa(){idade=18; CPF=71530919479; renda= 0.11; altura=1.9; peso=87; nome="Rato Branco"; estado="Solteiro";}
 		float IMC(float peso, float altura) {return peso/(altura*altura);}
 		int obesidade = (IMC(peso, altura)>=30)? 1:0; //if(obesidade) cout << "OBESO!\n";
 
+		void SETidade(int a){idade = a;}		; int GETidade(){return idade;}
+		void SETCPF(int a){CPF = a;}			; int GETCPF(){return CPF;}
+		void SETrenda(float a){renda = a;}		; float GETrenda(){return renda;}
+		void SETaltura(float a){altura = a;}	; float GETaltura(){return altura;}
+		void SETpeso(float a){peso = a;}		; float GETpeso(){return peso;} 
+		void SETnome(string a){nome = a;}		; string GETnome(){return nome;}
+		void SETestado(string a){estado = a;}	; string GETestado(){return estado;}
 };
 
 int main(){
-	pessoa p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
+	pessoa people[10];
+	int idade, CPF;
+	float renda, altura, peso;
+	string nome, estado;
+
 	cout << "Ola, vamos cadastrar uma pessoa?\nQuantas pessoas serao cadastradas dessa vez?\n";
 	int c;
 	cin >> c;
-	for(int i=1; i<=c; i++){
-		switch(i){
-		 case 1: cadastro(i); break;
-		 case 2:
-		 case 3:
-		 case 4:
-		 case 5:
-                 case 6:
-                 case 7:
-                 case 8:
-                 case 9:
-                 case 10:
-		default: cout << "Seu numero de pessoas ultrapassa o limite que é 10, reinicie o programa!\n"; break; 
-		}
+
+	for(int i=0; i<c; i++){
+		cout << "Idade " << i+1 << ": "; cin >> idade; people[i].SETidade(idade);  
 	}
+	for(int i=0; i<c; i++){
+		cout << "Idade " << i+1 << " = " << people[i].GETidade() << "\t";  
+	} //FUNCIONAAAAAAAAAAAAAAAAA
+
 return 0;
 }
 
-void cadastro(int index){
-	cout << "Vamos para o cadastro da " << index << "° pessoa!\n";
-	
-
-
+void cadastroI(int index){
+	string nome;
+	cout << "AAAAAAAA para o cadastro da " << index << "° pessoa!\nDigite seu nome completo: ";
+	getline(cin, nome, '\n');
+	cout << "teu nome " << nome << endl;
+	return;
 }
+

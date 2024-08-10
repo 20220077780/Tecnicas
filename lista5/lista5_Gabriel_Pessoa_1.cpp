@@ -21,6 +21,7 @@ using namespace std;
 
 int cadastroI();
 int listaII(int);
+int medias(int);
 int obesa(int);
 
 
@@ -42,7 +43,7 @@ class pessoa{
 		void SETestado(string a){estado = a;}	; string GETestado(){return estado;}
 
 		~pessoa(){
-			if(nome!="Rato Branco")	cout << "O  cadastro de " << nome << " foi DESTRUIDO!" << endl;
+			if(nome!="Rato Branco")	cout << "O cadastro de " << nome << " foi DESTRUIDO!" << endl;
 		}
 };
 
@@ -70,7 +71,7 @@ int main(){
 			case 0: break;
 			case 1: k =cadastroI(); break;
 			case 2: c=listaII(k); break;
-			case 3: break;
+			case 3: c=medias(k); break;
 			case 4: c=obesa(k); break;
 			default: cout << "Por favor, digite uma opcao valida!\n"; break;
 		}
@@ -102,6 +103,8 @@ int cadastroI(){
 				cout << "Somente aceitamos valores reais aqui!";
 				break;
 			}
+//(em metros) 
+
 			people[i].SETidade(idade);
 		cout << "CPF de " << nome << ": ";
 			cin >> CPF;
@@ -118,14 +121,14 @@ int cadastroI(){
 				break;
 			}
 			people[i].SETrenda(renda);
-		cout << "Altura de " << nome << ": ";
+		cout << "Altura de " << nome << " (em metros): ";
 			cin >> altura;
 			if(altura<=0){
 				cout << "Somente aceitamos valores reais aqui!";
 				break;
 			}
 			people[i].SETaltura(altura);
-		cout << "Peso de " << nome << ": ";	
+		cout << "Peso de " << nome << " (em kilogramas): ";	
 			cin >> peso;
 			if(renda<=0){
 				cout << "Somente aceitamos valores reais aqui!";
@@ -171,6 +174,43 @@ int listaII(int quantidade){
     cin >> c;
 	return c;   
 }
+//III. Imprima a média e o desvio-padrão das idades, da renda mensal, da altura e peso de todos os usuários cadastrados.
+int medias(int quantidade){
+	int c;
+	float media[4]={0, 0, 0, 0};
+	double dp[4]={0, 0, 0, 0};
+	for(c=0; c<quantidade; c++){
+		media[0] = media[0] + people[c].GETidade();
+		media[1] = media[1] + people[c].GETrenda();
+		media[2] = media[2] + people[c].GETaltura();
+		media[3] = media[3] + people[c].GETpeso();
+	}
+	media[0] = media[0]/c; 
+	media[1] = media[1]/c; 
+	media[2] = media[2]/c; 
+	media[3] = media[3]/c; 
+	for(c=0; c<quantidade; c++){
+		dp[0] = pow((people[c].GETidade() - media[0]), 2);
+		dp[1] = pow((people[c].GETrenda() - media[1]), 2);
+		dp[2] = pow((people[c].GETaltura() - media[2]), 2);
+		dp[3] = pow((people[c].GETpeso() - media[3]), 2);
+	}
+	dp[0] = dp[0]/quantidade;		dp[0] = sqrt(dp[0]);
+	dp[1] = dp[1]/quantidade;		dp[1] = sqrt(dp[1]);
+	dp[2] = dp[2]/quantidade;		dp[2] = sqrt(dp[2]);
+	dp[3] = dp[3]/quantidade;		dp[3] = sqrt(dp[3]);
+
+	// 		3 3 4 2 4 5 →→ m=3,5 →→ v²*n = (3-3,5)² + (3-3,5)² + (4-3,5)² + (2-3,5)² + (4-3,5)² + (5-3,5)² = x →→ v² = x/n = k →→ v = sqrtK
+	cout << "Média das idades: " << media[0] <<			"\tDesvio padrao das idades: " << dp[0] << endl << 
+	"Média das rendas mensais: " << media[1] <<			"\tDesvio padrao das rendas mensais: " << dp[1] << endl << 
+	"Média das alturas: " << media[2] <<			"\tDesvio padrao das alturas: " << dp[2] << endl << 
+	"Média dos pesos: " << media[3] <<			"\tDesvio padrao dos pesos: " << dp[3] << endl ;
+
+	cout <<"Deseja retornar para a tela inicial?\n\t[0] NAO\n\t[Qualquer numero] SIM\n";
+    cin >> c;
+	return c; 
+}
+
 //IV. Imprima o IMC (índice de massa corporal) de todos os usuários cadastrados juntamente com a informação se a pessoa está obesa ou não.
 //float IMC(float peso, float altura) {return peso/(altura*altura);}
 //int obesidade = (IMC(peso, altura)>=30)? 1:0; //if(obesidade) cout << "OBESO!\n";

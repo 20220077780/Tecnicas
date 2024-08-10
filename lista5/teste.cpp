@@ -1,11 +1,10 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 int main(){
-	string nomezin;
-	cout << "Digite seu nomezin baby: ";
-	getline(cin, nomezin);
-	cout << "Nomezin = " << nomezin << endl;
+	double x=71530919479;
+	cout << "X = " << setprecision(11) << x << ". Size of = " << sizeof(x) << endl;
 
 return 0;
 }

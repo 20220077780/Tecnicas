@@ -137,7 +137,6 @@ int cadastroI(){
 			people[i].SETpeso(peso);
 		cout << "Estado civil de " << nome << ": ";
 		    cin.ignore();
-			cin.ignore();
 			getline(cin, estado);
 			people[i].SETestado(estado);
 	}
@@ -190,10 +189,10 @@ int medias(int quantidade){
 	media[2] = media[2]/c; 
 	media[3] = media[3]/c; 
 	for(c=0; c<quantidade; c++){
-		dp[0] = pow((people[c].GETidade() - media[0]), 2);
-		dp[1] = pow((people[c].GETrenda() - media[1]), 2);
-		dp[2] = pow((people[c].GETaltura() - media[2]), 2);
-		dp[3] = pow((people[c].GETpeso() - media[3]), 2);
+		dp[0] = dp[0] + pow((people[c].GETidade() - media[0]), 2);
+		dp[1] = dp[1] + pow((people[c].GETrenda() - media[1]), 2);
+		dp[2] = dp[2] + pow((people[c].GETaltura() - media[2]), 2);
+		dp[3] = dp[3] + pow((people[c].GETpeso() - media[3]), 2);
 	}
 	dp[0] = dp[0]/quantidade;		dp[0] = sqrt(dp[0]);
 	dp[1] = dp[1]/quantidade;		dp[1] = sqrt(dp[1]);

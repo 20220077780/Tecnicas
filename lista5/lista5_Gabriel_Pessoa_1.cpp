@@ -27,19 +27,19 @@ int obesa(int);
 
 class pessoa{
 	int idade;
-	float renda, altura, peso, CPF;
-	string nome, estado;
+	float renda, altura, peso;
+	string nome, estado, CPF;
 	public:
-		pessoa(){idade=18; CPF=71530914479; renda = 0.11; altura=1.9; peso=87; nome="Rato Branco"; estado="Solteiro";}
+		pessoa(){idade=18; CPF="71530914479"; renda = 0.11; altura=1.9; peso=87; nome="Rato Branco"; estado="Solteiro";}
 		float IMC(float peso, float altura) {return peso/(altura*altura);}
 		int obesidade = (IMC(peso, altura)>=30)? 1:0; //if(obesidade) cout << "OBESO!\n";
 
 		void SETidade(int a){idade = a;}		; int GETidade(){return idade;}
-		void SETCPF(float a){CPF = a;}			; float GETCPF(){return CPF;}
 		void SETrenda(float a){renda = a;}		; float GETrenda(){return renda;}
 		void SETaltura(float a){altura = a;}	; float GETaltura(){return altura;}
 		void SETpeso(float a){peso = a;}		; float GETpeso(){return peso;} 
 		void SETnome(string a){nome = a;}		; string GETnome(){return nome;}
+		void SETCPF(string a){CPF = a;}			; string GETCPF(){return CPF;}
 		void SETestado(string a){estado = a;}	; string GETestado(){return estado;}
 
 		~pessoa(){
@@ -85,8 +85,8 @@ return 0;
 int cadastroI(){
 
 	int idade;
-	float renda, altura, peso, CPF;
-	string nome="none"; string estado="None";
+	float renda, altura, peso;
+	string nome="none"; string estado="None"; string CPF="None";
 
 	cout << "Ola, vamos cadastrar uma pessoa?\nQuantas pessoas serao cadastradas dessa vez?\n";
 	int c;
@@ -108,10 +108,9 @@ int cadastroI(){
 			people[i].SETidade(idade);
 		cout << "CPF de " << nome << ": ";
 			cin >> CPF;
-			int j = (CPF/pow(10,10));
-			if(j<1 || j>9){
-				cout << "Somente aceitamos valores reais aqui!";
-				break;
+			while(CPF[11] != '\0'){
+				cout << "Somente aceitamos valores reais aqui!\n >> ";
+				cin >> CPF;
 			}
 			people[i].SETCPF(CPF);
 		cout << "Renda de " << nome << ": ";

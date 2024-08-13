@@ -218,7 +218,7 @@ int obesa(int quantidade){
         float peso = people[i].GETpeso();
         float altura = people[i].GETaltura();
         cout << "O IMC de " << people[i].GETnome() << " é " << people[i].IMC( peso, altura) << endl;
-        int obesidade = (people[i].IMC(peso, altura)>=30)? 1:0; if(obesidade) cout << "\tEssa pessoa sofre de Obesidade!\n";
+        int obesidade = (people[i].IMC(peso, altura)>=30)? 1:0; if(obesidade) cout << "\tEssa pessoa sofre de Obesidade!\n"; else{cout << "\tEssa pessoa não está obesa.\n";};
     }
     
     

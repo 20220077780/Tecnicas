@@ -22,28 +22,58 @@ V. Tenha uma opção de retornar à tela inicial.
 */
 #include <iostream>
 #include <cmath>
+#define TAM 2
 using namespace std;
 
 // Cria uma funcao apenas para calcular a magnitude, tenta usar o strcmp para comparar as strings
-class aee{
+class Vetor{
     int x, y, z;
     public:
 
     void setx(int a){x = a;}    ; void sety(int a){y = a;}    ; void setz(int a){z = a;};
     int getx(){return x;}       ; int gety(){return y;}       ; int getz(){return z;};
-    float magnitude(int x, int y, int z);
+    
+    int pseudoaleatorios(){
+        int k;
+        cout << " Digite um numero inteiro para Setar valores [PAR] ou Gerar aleatoriamente[IMPAR]?";
+        cin >> k;
+        if(k%2==0){
+            int x, y, z;
+            cout << "Digite as coordenadas x y z desse seu vetor: ";
+            cin >> x;           cin >> y;           cin >> z;
+            setx(x);            sety(y);            setz(z);
+        }
+        else{ setx((rand()%11)-5);    sety((rand()%11)-5);    setz((rand()%11)-5); }
+    };
+    float magnitude(){return sqrt(x*x + y*y + z*z);};
+    int ordem();
+    int aritimetica();
 
 };
 
 int main(){
+    srand(time(NULL));
+    Vetor aee[TAM];
+    int c=1, i;
+    while(c){
+        cout << "Ola, o que desejas?\n"
+        << "[1] Gerar vetores pseudoaleatorios\n"
+        << "[2] Magnitude de vetores\n"
+        << "[3] Ordenar vetores\n"
+        << "[4] Aritimética vetorial\n"
+        << "[0] Sair\n";
 
+        cin >> c;
+        switch(c){
+            case 0: break;
+            case 1: for(i=0; i<TAM; i++) c=aee[i].pseudoaleatorios(); break;
+            case 2: for(i=0; i<TAM; i++) c=aee[i].magnitude(); break;
+            case 3: for(i=0; i<TAM; i++) c=aee[i].ordem(); break;
+            case 4: for(i=0; i<TAM; i++) c=aee[i].aritimetica(); break;
+            default: cout << "Por favor, digite um valor valido!\n"; 
+        }
+    }
 
 
     return 0;
-}
-
-
-float magnitude(int x, int y, int z){
-    float M = x*x + y*y + z*z;
-    return sqrt(M);
 }

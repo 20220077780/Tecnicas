@@ -22,32 +22,24 @@ V. Tenha uma opção de retornar à tela inicial.
 */
 #include <iostream>
 #include <cmath>
-#define TAM 2
+#include <ctime>
+
+#define TAM 5
 using namespace std;
 
 // Cria uma funcao apenas para calcular a magnitude, tenta usar o strcmp para comparar as strings
 class Vetor{
     int x, y, z;
     public:
+    Vetor(){x=100; y=100; z=100;}
 
     void setx(int a){x = a;}    ; void sety(int a){y = a;}    ; void setz(int a){z = a;};
     int getx(){return x;}       ; int gety(){return y;}       ; int getz(){return z;};
+    void pseudoaleatorios(int index);                         void show(int index);
     
-    int pseudoaleatorios(){
-        int k;
-        cout << " Digite um numero inteiro para Setar valores [PAR] ou Gerar aleatoriamente[IMPAR]?";
-        cin >> k;
-        if(k%2==0){
-            int x, y, z;
-            cout << "Digite as coordenadas x y z desse seu vetor: ";
-            cin >> x;           cin >> y;           cin >> z;
-            setx(x);            sety(y);            setz(z);
-        }
-        else{ setx((rand()%11)-5);    sety((rand()%11)-5);    setz((rand()%11)-5); }
-    };
-    float magnitude(){return sqrt(x*x + y*y + z*z);};
-    int ordem();
-    int aritimetica();
+    float magnitude();
+    //int ordem();
+    //int aritimetica();
 
 };
 
@@ -66,10 +58,17 @@ int main(){
         cin >> c;
         switch(c){
             case 0: break;
-            case 1: for(i=0; i<TAM; i++) c=aee[i].pseudoaleatorios(); break;
-            case 2: for(i=0; i<TAM; i++) c=aee[i].magnitude(); break;
-            case 3: for(i=0; i<TAM; i++) c=aee[i].ordem(); break;
-            case 4: for(i=0; i<TAM; i++) c=aee[i].aritimetica(); break;
+            case 1: {
+                for(i=0; i<TAM; i++) aee[i].pseudoaleatorios(i);
+                for(i=0; i<TAM; i++) aee[i].show(i);
+                cout << "Desejas voltar ao menu ou sair [0]? ";
+                cin >> c;
+                break;}
+            case 2: {
+                for(i=0; i<TAM; i++) cout << "Magnitude do vetor " << i << ": " << aee[i].magnitude() << endl;
+                break;}
+           // case 3: for(i=0; i<TAM; i++) c=aee[i].ordem(); break;
+           // case 4: for(i=0; i<TAM; i++) c=aee[i].aritimetica(); break;
             default: cout << "Por favor, digite um valor valido!\n"; 
         }
     }
@@ -77,3 +76,22 @@ int main(){
 
     return 0;
 }
+void Vetor::pseudoaleatorios(int index){
+    int k;
+    cout << " Digite um numero inteiro para Setar valores [PAR] ou Gerar aleatoriamente[IMPAR] do vetor " << index<< " : ";
+    cin >> k;
+    if(k%2==0){
+        int x, y, z;
+        cout << "Digite as coordenadas x y z desse seu vetor: ";
+        cin >> x;           cin >> y;           cin >> z;
+        setx(x);            sety(y);            setz(z);
+    }
+    else{ setx((rand()%11)-5);    sety((rand()%11)-5);    setz((rand()%11)-5); }
+}
+
+void Vetor::show(int index){
+    if(index==0) cout << "Vetores criados: \n";
+    cout << "\tVetor " << index << ": [" << Vetor::getx() << "][" << Vetor::gety() << "][" << Vetor::getz() << "]\n";
+}
+
+float Vetor::magnitude(){return sqrt(x*x + y*y + z*z);}

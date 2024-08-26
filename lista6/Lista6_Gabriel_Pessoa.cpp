@@ -42,7 +42,6 @@ class Vetor{
         void show(int index);
         float magnitude();
         //void ordem();
-        
 
 };
 

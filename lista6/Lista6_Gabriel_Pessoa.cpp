@@ -24,11 +24,14 @@ V. Tenha uma opção de retornar à tela inicial.
 #include <cmath>
 #include <ctime>
 
-#define TAM 5
+#define TAM 10
 using namespace std;
 
 void ordem();
 void aritimetica();
+void soma(int, int);
+void sub(int, int);
+int dist(int, int);
 
 // Cria uma funcao apenas para calcular a magnitude, tenta usar o strcmp para comparar as strings
 class Vetor{
@@ -49,13 +52,13 @@ Vetor aee[TAM];
 int main(){
     srand(time(NULL));
     int c=1, i;
+    cout << "Ola, o que desejas?\n";
     while(c){
-        cout << "Ola, o que desejas?\n"
-        << "[1] Gerar vetores pseudoaleatorios\n"
-        << "[2] Magnitude de vetores\n"
-        << "[3] Ordenar vetores\n"
-        << "[4] Aritimética vetorial\n"
-        << "[0] Sair\n";
+        cout << "[1] Gerar vetores pseudoaleatorios\n"
+             << "[2] Magnitude de vetores\n"
+             << "[3] Ordenar vetores\n"
+             << "[4] Aritimética vetorial\n"
+             << "[0] Sair\n";
 
         cin >> c;
         switch(c){
@@ -85,13 +88,12 @@ int main(){
             default: cout << "Por favor, digite um valor valido!\n"; 
         }
     }
-
-
+    cout << "Obrigado pelo seu tempo!\n";
     return 0;
 }
 void Vetor::pseudoaleatorios(int index){
     int k;
-    cout << " Digite um numero inteiro para Setar valores [PAR] ou Gerar aleatoriamente[IMPAR] do vetor " << index<< " : ";
+    cout << " Digite um numero inteiro para Setar valores [PAR] ou Gerar aleatoriamente[IMPAR] do vetor " << index+1 << " : ";
     cin >> k;
     if(k%2==0){
         int x, y, z;
@@ -129,7 +131,7 @@ void ordem(){//algoritimo da bolha!
                 ordem[i+1] = temp;
             }
     cout <<"Ordem: ";
-    for(i=0; i<TAM; i++) cout << ordem[i] << " ";
+    for(i=0; i<TAM; i++) cout << ordem[i] << " "; //Não consegui resolver e não deu tempo
 }
 /*
 III. Imprimir todos os vetores em ordem crescente de acordo com a 
@@ -138,10 +140,35 @@ anterior.
 */
 void aritimetica(){
     cout << "Diga-me 2 vetores de 1 a " << TAM << " e eu mostrarei-te soma, subtração e distancia entre 2 vetores\n";
-    //distancia = dif indexess
+    int c, k;
+    cin >> c;    cin >> k;
+    cout << "Vetor soma: "; soma(c, k);
+    cout << "Vetor subtracao: "; sub(c, k);
+    cout << "Distancia entre os 2 vetores: " << dist(c, k) << endl;
 }
-/*
-IV. Computar e imprimir, por meio de funções definidas pelo usuário, a 
-soma, a subtração e a distância entre 2 vetores dos 10 criados, 
-dado que foram inicializados pela operação anterior.
+
+void soma(int a, int b){
+    int x = aee[a-1].getx() + aee[b-1].getx();
+    int y = aee[a-1].gety() + aee[b-1].gety();
+    int z = aee[a-1].getz() + aee[b-1].getz();
+    float Mag = sqrt(x*x + y*y + z*z);
+    cout << "[" << x << "][" << y << "][" << z << "]\tMagnitude = " << Mag << endl;
+}
+void sub(int a, int b){
+    int x = aee[a-1].getx() - aee[b-1].getx();
+    int y = aee[a-1].gety() - aee[b-1].gety();
+    int z = aee[a-1].getz() - aee[b-1].getz();
+    float Mag = sqrt(x*x + y*y + z*z);
+    cout << "[" << x << "][" << y << "][" << z << "]\tMagnitude = " << Mag << endl;
+}
+int dist( int a, int b){
+    if(a>b) return a-b;
+    return b-a;
+} /* No plano cartesiano, 2 vetores tem seu inicio no mesmo ponto: a origem.
+Sendo assim, a resposta para a distancia entre 2 vetores mais literal seria 0 para quaisquer 2 vetores, o que nao
+faria sentido ser perguntado. Há também a interpretação em que a distancia entre os 2 vetores seja a distancia
+entre as extremidades desses 2 vetores, nesse caso, essa distancia seria justamente a magnitude da diferença, que
+foi perguntado no mesmo topico pelo professor PRotásio, então novamente não serviria como resposta para a distância.
+A unica resposta correta ao meu ver seria a distancia dos INDEX, o que é extremamente fácil, a-b, porém, o fato de ser
+muito fácil me assusta: as coisas na vida de técnicas de programação não são tão triviais assim!
 */

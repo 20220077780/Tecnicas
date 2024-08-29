@@ -1,0 +1,20 @@
+WhiteMouse
+40 16
+WhiteMouse
+10 25
+WhiteMouse
+9 27
+WhiteMouse
+27 24
+WhiteMouse
+3 12
+WhiteMouse
+4 38
+WhiteMouse
+4 46
+WhiteMouse
+11 5
+WhiteMouse
+15 41
+WhiteMouse
+16 40

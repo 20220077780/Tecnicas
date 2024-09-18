@@ -21,41 +21,50 @@ do vetor e desaloque a memória alocada.
 #include <ctime>
 using namespace std;
 
-void a();
-void b();
-void c();
-void d();
+void a(float *vetor, int n);
+void b(float *vetor, int n);
+void c(float *vetor, int n);
+void d(float *vetor, int n);
 void e();
 void f();
 
+int n=0;
+
 int main(){
     srand(time(NULL));
+    float *vetor = new float[n];
     while(1){
-        cout << "Hello! Wellcome to the menu. What do you want to do?: \n"
+        if(!n){
+            cout << "Hello! Wellcome to the menu. We are going to create a vector!\nWhat is the number of elements of the vector? ";
+            cin >> n;
+            cout << "Great! You have created a vector with " << n << " elements." << endl;
+            float *vetor = new float[n];
+        }
+        
+        cout << "What do you want to do now?: \n"
         << "[0] Leave" << endl
-        << "[1] Create a pseudo-aleatory vector" << endl
-        << "[2] Create a 'sine-vector'" << endl
-        << "[3] Create a 'k-vector'" << endl
+        << "[1] Pseudo-aleatory vector" << endl
+        << "[2] 'Sine-vector'" << endl
+        << "[3] 'K-vector'" << endl
         << "[4] Average value of vector" << endl
         << "[5] Quadractic average value of vector" << endl
         << "[6] Variance values of vector" << endl;
         int q;  cin >> q;
         switch (q){
             case 0: break;
-            case 1: srand(time(NULL)); a(); continue;
-            case 2: b(); continue;
-            case 3: c(); continue;
-//            case 4: d();
+            case 1: srand(time(NULL)); a(vetor, n); continue; //vetor já é o ponteiro do vetor!
+            case 2: b(vetor, n); continue;
+            case 3: c(vetor, n); continue;
+            case 4: d(vetor, n); continue;
 //            case 5: e();
 //            case 6: f();
         }
+        if(!q) break;
     }
+    cout << "\nYOU HAVE LEAVED LEAVED!!!" << endl;
 }
 
-void a(){
-    cout << "What is the number of elements of the vector? ";
-    int n;  cin >> n;
-    float *vetor = new float[n];
+void a(float *vetor, int n){
     cout << "Your vector is: [";
     for(int c=0; c<n; c++){
         vetor[c] = rand()%100 +1;
@@ -65,10 +74,7 @@ void a(){
     cout << "]" << endl;
 }
 
-void b(){
-    cout << "What is the number of elements of the vector? ";
-    int n;  cin >> n;
-    float *vetor = new float[n];
+void b(float *vetor, int n){
     cout << "Your vector is: [";
     for(int c=0; c<n; c++){
         vetor[c] = sin(c);
@@ -78,10 +84,7 @@ void b(){
     cout << "]" << endl;
 }
 
-void c(){
-    cout << "What is the number of elements of the vector? ";
-    int n;  cin >> n;
-    float *vetor = new float[n];
+void c(float *vetor, int n){
     cout << "Which constant do you want to put in your vector? ";
     float k; cin >> k;
     cout << "Your vector is: [";
@@ -91,4 +94,13 @@ void c(){
         else cout << vetor[c];
     }
     cout << "]" << endl;
+}
+
+void d(float *vetor, int n){
+    float media = 0;
+    for(int c=0; c<n; c++)
+        media += vetor[c]; 
+    media = media/n;
+    cout << "The average value of the vector is: " << media << endl;
+    delete[] vetor; // ok funcionou!
 }

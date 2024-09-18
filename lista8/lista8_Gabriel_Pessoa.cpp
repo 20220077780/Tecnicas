@@ -25,8 +25,8 @@ void a(float *vetor, int n);
 void b(float *vetor, int n);
 void c(float *vetor, int n);
 void d(float *vetor, int n);
-void e();
-void f();
+void e(float *vetor, int n);
+void f(float *vetor, int n);
 
 int n=0;
 
@@ -46,9 +46,9 @@ int main(){
         << "[1] Pseudo-aleatory vector" << endl
         << "[2] 'Sine-vector'" << endl
         << "[3] 'K-vector'" << endl
-        << "[4] Average value of vector" << endl
-        << "[5] Quadractic average value of vector" << endl
-        << "[6] Variance values of vector" << endl;
+        << "[4] Average of vector values" << endl
+        << "[5] Root mean square of vector values" << endl
+        << "[6] Variance of vector values" << endl;
         int q;  cin >> q;
         switch (q){
             case 0: break;
@@ -56,8 +56,8 @@ int main(){
             case 2: b(vetor, n); continue;
             case 3: c(vetor, n); continue;
             case 4: d(vetor, n); continue;
-//            case 5: e();
-//            case 6: f();
+            case 5: e(vetor, n); continue;
+            case 6: f(vetor, n); continue;
         }
         if(!q) break;
     }
@@ -101,6 +101,33 @@ void d(float *vetor, int n){
     for(int c=0; c<n; c++)
         media += vetor[c]; 
     media = media/n;
-    cout << "The average value of the vector is: " << media << endl;
+    cout << "The average of vector values is: " << media << endl;
+    delete[] vetor; // ok funcionou!
+}
+
+void e(float *vetor, int n){
+    float RMS = 0;
+    for(int c=0; c<n; c++)
+        RMS += pow(vetor[c], 2); 
+    RMS = RMS/n;
+    RMS = sqrt(RMS);
+    cout << "The RMS value of the vector is: " << RMS << endl;
+    delete[] vetor; // ok funcionou!
+}
+
+void f(float *vetor, int n){
+    float media = 0;
+    for(int c=0; c<n; c++)
+        media += vetor[c]; 
+    media = media/n;
+
+    float var=0;
+    for(int c=0; c<n; c++)
+        var += pow((media - vetor[c]), 2);
+    var = var/n; // Cuidado quando for comparar os results com uma calculadora online
+//pelo fato de eu estar calculando a variancia de todo o vetor, considero uma
+//variancia populacional, e nao uma amostral, como é standard nas calculadoras online
+
+    cout << "The variance of vector values is: " << var << endl; 
     delete[] vetor; // ok funcionou!
 }

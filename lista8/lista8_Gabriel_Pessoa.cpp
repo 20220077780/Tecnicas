@@ -35,13 +35,13 @@ int main(){
     float *vetor = new float[n];
     while(1){
         if(!n){
-            cout << "Hello! Wellcome to the menu. We are going to create a vector!\nWhat is the number of elements of the vector? ";
+            cout << "Hello! Welcome to the menu. We are going to create a vector!\nHow many elements should the vector have? ";
             cin >> n;
-            cout << "Great! You have created a vector with " << n << " elements." << endl;
-            float *vetor = new float[n];
+            cout << "Great! A vector with " << n << " elements has been created." << endl;
+            float *vetor = new float[n]; //criar o vetor apenas aqui sem ter criado ele anteriormente estava dando erro na compilação.
         }
         
-        cout << "What do you want to do now?: \n"
+        cout << "What would you like to do next?: \n"
         << "[0] Leave" << endl
         << "[1] Pseudo-aleatory vector" << endl
         << "[2] 'Sine-vector'" << endl
@@ -61,7 +61,7 @@ int main(){
         }
         if(!q) break;
     }
-    cout << "\nYOU HAVE LEAVED LEAVED!!!" << endl;
+    cout << "\nYOU HAVE EXITED THE PROGRAM!!!" << endl;
 }
 
 void a(float *vetor, int n){
@@ -85,7 +85,7 @@ void b(float *vetor, int n){
 }
 
 void c(float *vetor, int n){
-    cout << "Which constant do you want to put in your vector? ";
+    cout << "Which constant would you like to set for your vector? ";
     float k; cin >> k;
     cout << "Your vector is: [";
     for(int c=0; c<n; c++){
